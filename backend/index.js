@@ -5,7 +5,6 @@ import dotenv from "dotenv";
 import role from "./routes/role.js";
 import user from "./routes/user.js";
 import board from "./routes/board.js";
-import forgotPassword from "./routes/forgot_password.js";
 dotenv.config();
 
 const app = express();
@@ -15,7 +14,6 @@ app.use(cors());
 app.use("/api/role", role);
 app.use("/api/user", user);
 app.use("/api/board", board);
-app.use("/api/forgotPassword", forgotPassword);
 app.use("/uploads", express.static("uploads"));
 
 app.listen(process.env.PORT, () =>
