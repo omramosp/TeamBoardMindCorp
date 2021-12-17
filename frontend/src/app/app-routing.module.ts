@@ -11,7 +11,9 @@ import { SaveTaskComponent } from './board/save-task/save-task.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 
+
 import { AuthGuard } from './guard/auth.guard';
+import { UserHistoryComponent } from './board/user-history/user-history.component';
 
 const routes: Routes = [
   {
@@ -27,6 +29,11 @@ const routes: Routes = [
   {
     path: 'saveTask',
     component: SaveTaskComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'saveUserStory',
+    component: UserHistoryComponent,
     canActivate: [AuthGuard],
   },
   {
