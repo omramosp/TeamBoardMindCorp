@@ -31,3 +31,10 @@
 mat-card-title {
   text-align: center;
 }
+mat-card-actions{
+  text-align: center;
+}
+.spacer{
+  display: block;
+  height: 15px;
+}
