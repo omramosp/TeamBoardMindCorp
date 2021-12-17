@@ -17,10 +17,19 @@
         <a
           class="nav-link"
           *ngIf="_userService.loggedIn()"
+          routerLink="saveUserStory"
+          >Create User Story</a
+        >
+      </li>
+      <li class="nav-item active">
+        <a
+          class="nav-link"
+          *ngIf="_userService.loggedIn()"
           routerLink="listTask"
           >List task</a
         >
       </li>
+
       <li class="nav-item">
         <a
           class="nav-link"
