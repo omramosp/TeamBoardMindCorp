@@ -42,6 +42,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ForgottenPasswordComponent } from './recoverPassword/forgotten-password/forgotten-password.component';
 import { ForgottenPasswordConfirmComponent } from './recoverPassword/forgotten-password-confirm/forgotten-password-confirm.component';
+import { UserHistoryComponent } from './board/user-history/user-history.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ForgottenPasswordConfirmComponent } from './recoverPassword/forgotten-p
     UpdateRoleComponent,
     ForgottenPasswordComponent,
     ForgottenPasswordConfirmComponent,
+    UserHistoryComponent,
   ],
   imports: [
     BrowserModule,

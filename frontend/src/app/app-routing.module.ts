@@ -11,9 +11,11 @@ import { SaveTaskComponent } from './board/save-task/save-task.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 
+
 import { AuthGuard } from './guard/auth.guard';
 import { ForgottenPasswordConfirmComponent } from './recoverPassword/forgotten-password-confirm/forgotten-password-confirm.component';
 import { ForgottenPasswordComponent } from './recoverPassword/forgotten-password/forgotten-password.component';
+import { UserHistoryComponent } from './board/user-history/user-history.component';
 
 const routes: Routes = [
   {
@@ -29,6 +31,11 @@ const routes: Routes = [
   {
     path: 'saveTask',
     component: SaveTaskComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'saveUserStory',
+    component: UserHistoryComponent,
     canActivate: [AuthGuard],
   },
   {
