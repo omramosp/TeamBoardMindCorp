@@ -6,33 +6,59 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-history',
   templateUrl: './user-history.component.html',
-  styleUrls: ['./user-history.component.css']
+  styleUrls: ['./user-history.component.css'],
 })
 export class UserHistoryComponent implements OnInit {
+  userData: any;
   registerData: any;
   selectedFile: any;
   message: string = '';
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  durationInSeconds: number = 2
+  durationInSeconds: number = 2;
 
   constructor(
     private _boardService: BoardService,
     private _router: Router,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _userService: UserService
   ) {
     this.registerData = {};
     this.selectedFile = null;
+    this.userData = [];
   }
 
   ngOnInit(): void {
+    this._userService.listUser('').subscribe({
+      next: (v) => {
+        for (const key in v.userList) {
+          let item: any = v.userList[key];
+          this.userData.push(item);
+          console.log(item);
+        }
+
+        console.log(this.userData);
+      },
+      error: (e) => {
+        this.message = e.error.message;
+        this.openSnackBarError();
+      },
+      complete: () => console.info('complete'),
+    });
   }
+
   saveUserStory() {
-    if (!this.registerData.name || !this.registerData.userId || !this.registerData.userStoryStatus ||!this.registerData.details) {
+    if (
+      !this.registerData.name ||
+      !this.registerData.userId ||
+      !this.registerData.userStoryStatus ||
+      !this.registerData.details
+    ) {
       this.message = 'Failed process: Incomplete Data';
       this.openSnackBarError();
     } else {
@@ -67,5 +93,4 @@ export class UserHistoryComponent implements OnInit {
       panelClass: ['style-snackBarFalse'],
     });
   }
-
 }

@@ -20,9 +20,20 @@
               required
             />
           </mat-form-field>
+          <!-- <div *ngFor="let item of userData">
+            <mat-form-field appearance="fill">
+              <select matNativeControl required>
+                <option value="user">{{ item.email }}</option>
+              </select>
+            </mat-form-field>
+          </div> -->
           <mat-form-field appearance="fill">
             <mat-label>Status</mat-label>
-            <select matNativeControl required [(ngModel)]="registerData.userStoryStatus">
+            <select
+              matNativeControl
+              required
+              [(ngModel)]="registerData.userStoryStatus"
+            >
               <option value="active">Active</option>
               <option value="resolved">Resolved</option>
               <option value="verified">Verified QA</option>
@@ -30,14 +41,6 @@
               <option value="closed">Closed</option>
             </select>
           </mat-form-field>
-           <!-- <mat-form-field>
-            <input
-              [(ngModel)]="registerData.userStoryStatus"
-              matInput
-              placeholder="Status"
-              required
-            />
-          </mat-form-field> -->
           <mat-form-field>
             <input
               [(ngModel)]="registerData.description"
@@ -74,7 +77,7 @@
       </mat-card-content>
       <mat-card-actions>
         <button (click)="saveUserStory()" class="button" mat-raised-button>
-          Create
+          --> Create
         </button>
       </mat-card-actions>
     </mat-card>
